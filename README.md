@@ -1,69 +1,67 @@
-# LLM Response Stability and Neutral Response Options
+# LLM Response Stability under Survey Response-Option Conditions
 
-This repository contains the code and materials for an NLP seminar
-experiment investigating whether adding a neutral response option
-affects the stability of repeated LLM responses to World Values Survey
-(WVS) items.
+## Research Questions
 
-## Research Question
+- Does the availability of a neutral response option affect the stability of LLM responses?
+- Is the effect consistent across different survey items?
 
-Does the availability of a neutral response option affect the stability
-of LLM responses to value- and attitude-related survey items?
+## Experiment
 
-## Experimental Setup
+Model:
+Qwen/Qwen2.5-1.5B-Instruct
 
-- Dataset: World Values Survey Wave 7
-- Survey items: 30
-- Model: Qwen/Qwen2.5-1.5B-Instruct
-- Repetitions: 10 per item and condition
-- Temperature: 0.7
-- Top-p: 0.9
-- Total responses: 600
+Dataset:
+World Values Survey Wave 7
 
-## Response Conditions
+Items:
+30 selected survey items
 
-### No neutral
+Conditions:
+1. Four-point response scale without a neutral option
+2. Five-point response scale with a neutral option
 
-- Strongly disagree
-- Disagree
-- Agree
-- Strongly agree
+Repetitions:
+10 per item and condition
 
-### Neutral available
+Temperature:
+0.7
 
-- Strongly disagree
-- Disagree
-- Neither agree nor disagree
-- Agree
-- Strongly agree
+Top-p:
+0.9
 
-## Stability Measure
+## Stability Metric
 
-For each item and condition:
+Modal response share:
 
-Stability = frequency of the most common response /
-number of valid responses.
+stability = frequency of the most common response / number of valid responses
 
 ## Results
 
-Mean modal-response stability:
+Mean stability:
 
 - No neutral: 0.763
 - Neutral available: 0.703
 - Difference: -0.060
 
-The direction of change varied across individual items.
+Item-level changes:
+
+- Decreased: 14
+- Increased: 8
+- Unchanged: 8
+
+Neutral responses:
+
+- 6 of 300 responses
+- 2%
 
 ## Poster
 
-The `poster/` directory contains the LaTeX source and figures used
-to generate the seminar poster.
+The poster is available in the `poster/` directory.
 
 ## Reproducibility
 
-The `experiment/` directory contains the experimental implementation
-and checkpoint/results file.
+The experiment code and checkpoint data are provided in `experiment/`.
 
 ## References
 
-Full academic references are provided in the accompanying appendix.
+Full academic references and dataset documentation are provided in the appendix.
